@@ -7,7 +7,7 @@ const mongoClient = new MongoClient(process.env.MONGO_URI);
 let db;
 
 try {
-  //await mongoClient.connect();
+  await mongoClient.connect();
   db = mongoClient.db("myEcommerce");
 } catch (err) {
   console.log(err);
