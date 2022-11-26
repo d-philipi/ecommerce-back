@@ -25,7 +25,7 @@ export async function signIn(req, res){
             userId: userExiste._id,
         });
 
-        res.send({ token, name: userExiste.name });
+        res.send({ token, name: userExiste.name, image: userExiste.image });
     } catch (err) {
         res.sendStatus(500);
     }
