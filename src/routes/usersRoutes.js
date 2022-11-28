@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { signIn, signUp } from "../controllers/userController.js";
-import { itemCatalog } from "../controllers/itemCatalog.js";
+import { itemCatalog, itemCart } from "../controllers/itemCatalog.js";
 import { signInValidation } from "../middlewares/signInValidationMiddleware.js";
 import { signUpValidation } from "../middlewares/signUpValidationMiddleware.js";
 
@@ -12,5 +12,6 @@ router.post("/sign-up", signUpValidation, signUp);
 router.post("/sign-in", signInValidation, signIn);
 router.get("/home", itemCatalog);
 router.post("/home", itemCatalog);
+router.post("/cart", itemCart);
 
 export default router;

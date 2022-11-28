@@ -13,11 +13,10 @@ export async function itemCatalog(req, res) {
   const {email, cart} = req.body;
 
   if(email != undefined) {
-    await cartCollection.find({email}).toArray().then((bilau) => {
-      if(bilau.length > 0) {
+    await cartCollection.find({email}).toArray().then((emailExists) => {
+      if(emailExists.length > 0) {
         cartCollection.updateOne({email: email}, {$set:{items: cart}});
       } else {
-        console.log({email});
         cartCollection.insertOne({
           email,
           items: cart
@@ -27,4 +26,8 @@ export async function itemCatalog(req, res) {
   }
 
   return res.send(items);
+}
+
+export async function itemCart(req, res) {
+
 }
