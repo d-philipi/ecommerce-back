@@ -29,5 +29,9 @@ export async function itemCatalog(req, res) {
 }
 
 export async function itemCart(req, res) {
+  const {email} = req.params;
 
+  const cart = await cartCollection.find({email}).toArray();
+
+  res.send(cart);
 }

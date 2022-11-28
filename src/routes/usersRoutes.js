@@ -12,6 +12,6 @@ router.post("/sign-up", signUpValidation, signUp);
 router.post("/sign-in", signInValidation, signIn);
 router.get("/home", itemCatalog);
 router.post("/home", itemCatalog);
-router.post("/cart", itemCart);
+router.get("/cart/:email", itemCart);
 
 export default router;
