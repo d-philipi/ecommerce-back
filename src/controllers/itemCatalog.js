@@ -30,8 +30,13 @@ export async function itemCatalog(req, res) {
 
 export async function itemCart(req, res) {
   const {email} = req.params;
+  const {cartEmail, cart} = req.body;
 
-  const cart = await cartCollection.find({email}).toArray();
+  const itemCart = await cartCollection.find({email}).toArray();  
 
-  res.send(cart);
+  if(cart) {
+    cartCollection.updateOne({email: cartEmail}, {$set:{items: cart}});
+  }
+
+  res.send(itemCart);
 }
