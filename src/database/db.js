@@ -13,7 +13,7 @@ try {
   console.log(err);
 }
 
-
 export const usersCollection = db.collection("users");
-export const cartCollection = db.collection("cart");
 export const sessionsCollection = db.collection("sessions");
+export const itemsCollection = db.collection("items");
+export const cartCollection = db.collection("cart");
